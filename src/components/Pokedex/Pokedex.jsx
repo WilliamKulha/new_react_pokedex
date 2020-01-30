@@ -18,7 +18,7 @@ class Pokedex extends Component {
     };
 
     getList = async () => {
-        return fetch(`https://pokeapi.co/api/v2/pokemon/?limit=400`).then(resp =>
+        return fetch(`https://pokeapi.co/api/v2/pokemon/?limit=151`).then(resp =>
         resp.json()
         );
     };
