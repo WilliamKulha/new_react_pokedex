@@ -52,7 +52,7 @@ class Pokedex extends Component {
     }
 
     closeModalHandler = () => {
-        this.setStae({ showPokeModal: false})
+        this.setState({ showPokeModal: false, currentPokemon: null})
     }
     
     render(){
@@ -81,7 +81,7 @@ class Pokedex extends Component {
             {header}
             <div className={classes.PokedexWrapper}>
               {loading}
-              <Modal show={this.state.showPokeModal}>
+              <Modal show={this.state.showPokeModal} closeModal={this.closeModalHandler}>
                 {pokeviewer}
               </Modal>
               {this.state.pokedex

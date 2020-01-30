@@ -8,7 +8,7 @@
 .PokeViewContainer {
     display: flex;
     flex-flow: column;
-    background-color: #eee;
+    background-color: #fff;
     position: relative;
 
 }
@@ -18,7 +18,7 @@
     flex-flow: row nowrap;
     justify-content: space-between;
     padding: 1em;
-    background-color: #fff;
+    background-color: #eee;
 
 }
 
@@ -44,7 +44,7 @@ flex-flow: column;
 }
 
 .Stats h3 {
-    background-color: #efe;
+    background-color: #eee;
     color: black;
     text-align: center;
     padding: 1em;
