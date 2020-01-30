@@ -1,0 +1,46 @@
+.PokeViewContainer {
+    margin: 1em 1em;
+}
+
+.PokeName {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+}
+
+.PokeName h1 {
+    text-transform: capitalize;
+}
+
+.PokeImage {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.PokeImage img {
+    height: 240px;
+    width: 240px;
+}
+
+.Stats {
+background-color: #eee;
+border-top-left-radius: 15px;
+border-top-right-radius: 15px;
+}
+
+.Stats h3 {
+    background-color: #efe;
+    padding: 1em;
+    color: black;
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.Sats p {
+    color: #fff;
+    padding: 1em;
+}
+

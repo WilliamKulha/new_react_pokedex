@@ -10,3 +10,5 @@ const modal = (props) => (
         {props.children}
     </div>
 )
+
+export default modal

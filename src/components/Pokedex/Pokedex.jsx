@@ -3,6 +3,8 @@ import PokemonCard from '../PokemonCard/PokemonCard'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import classes from './Pokedex.module.css'
 import Header from '../Header/Header'
+import Modal from '../UI/Modal/Modal'
+import PokeView from '../PokeView/PokeView'
 
 class Pokedex extends Component {
     
@@ -12,7 +14,7 @@ class Pokedex extends Component {
         currentPokemon: null,
         loading: false,
         error: false,
-        showModal: false
+        showPokeModal: false
     };
 
     getList = async () => {
@@ -50,7 +52,7 @@ class Pokedex extends Component {
     }
 
     closeModalHandler = () => {
-        this.setStae({ showModal: false})
+        this.setStae({ showPokeModal: false})
     }
     
     render(){
@@ -67,14 +69,15 @@ class Pokedex extends Component {
                 <Header typingChange={this.searchFieldChangeHandler} searched={this.state.search}/>
             )
         }
-        let pokeModal = null;
 
         return (
           <React.Fragment>
             {header}
             <div className={classes.PokedexWrapper}>
               {loading}
-              {pokeModal}
+              <Modal show={this.state.showPokeModal}>
+                <PokeView/>
+              </Modal>
               {this.state.pokedex
                 .filter(pokemon =>
                   pokemon.name
