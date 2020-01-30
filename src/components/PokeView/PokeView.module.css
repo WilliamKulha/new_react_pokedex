@@ -1,11 +1,24 @@
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
 .PokeViewContainer {
-    margin: 1em 1em;
+    display: flex;
+    flex-flow: column;
+    background-color: #eee;
+    position: relative;
+
 }
 
 .PokeName {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
+    padding: 1em;
+    background-color: #fff;
 
 }
 
@@ -25,22 +38,19 @@
 }
 
 .Stats {
-background-color: #eee;
-border-top-left-radius: 15px;
-border-top-right-radius: 15px;
+margin: 0;
+display: flex;
+flex-flow: column;
 }
 
 .Stats h3 {
     background-color: #efe;
-    padding: 1em;
     color: black;
-    width: 100%;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
-.Sats p {
-    color: #fff;
+    text-align: center;
     padding: 1em;
 }
 
+.BaseStats {
+    padding: .25em;
+    background-color: #fff;
+}

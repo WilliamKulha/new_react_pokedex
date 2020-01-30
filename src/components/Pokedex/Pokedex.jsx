@@ -43,7 +43,7 @@ class Pokedex extends Component {
         const clicked_idx = this.state.pokedex.findIndex(poke_id => poke_id.id === id)
         this.setState({
         currentPokemon: this.state.pokedex[clicked_idx],
-        showModal: true
+        showPokeModal: true
         })
     }
 
@@ -69,6 +69,12 @@ class Pokedex extends Component {
                 <Header typingChange={this.searchFieldChangeHandler} searched={this.state.search}/>
             )
         }
+        let pokeviewer = null
+        if(this.state.currentPokemon !== null) {
+            pokeviewer = (
+                <PokeView pokemon={this.state.currentPokemon}/>
+            )
+        }
 
         return (
           <React.Fragment>
@@ -76,7 +82,7 @@ class Pokedex extends Component {
             <div className={classes.PokedexWrapper}>
               {loading}
               <Modal show={this.state.showPokeModal}>
-                <PokeView/>
+                {pokeviewer}
               </Modal>
               {this.state.pokedex
                 .filter(pokemon =>
