@@ -1,0 +1,7 @@
+.Logo {
+    font-weight: bold;
+    color: rgb(88, 84, 84);
+    margin: 15px;
+    display: flex;
+    align-items: center;
+}

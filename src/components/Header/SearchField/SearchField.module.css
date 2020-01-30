@@ -1,0 +1,8 @@
+.SearchField {
+    height: 25px;
+    display: flex;
+    align-items: center;
+    margin: 30px;
+    width: 250px;
+    border-radius: 5px;
+}
