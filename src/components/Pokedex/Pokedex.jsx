@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PokemonCard from '../PokemonCard/PokemonCard'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import classes from './Pokedex.module.css'
-import Header from '../Header/Header'
 import Modal from '../UI/Modal/Modal'
 import PokeView from '../PokeView/PokeView'
 
@@ -10,7 +9,6 @@ class Pokedex extends Component {
     
     state = {
         pokedex: [],
-        search: "",
         currentPokemon: null,
         loading: false,
         error: false,
@@ -18,7 +16,7 @@ class Pokedex extends Component {
     };
 
     getList = async () => {
-        return fetch(`https://pokeapi.co/api/v2/pokemon/?limit=151`).then(resp =>
+        return fetch(`https://pokeapi.co/api/v2/pokemon/?limit=250`).then(resp =>
         resp.json()
         );
     };
@@ -47,9 +45,6 @@ class Pokedex extends Component {
         })
     }
 
-    searchFieldChangeHandler = event => {
-          this.setState({ search: event.target.value });
-    }
 
     closeModalHandler = () => {
         this.setState({ showPokeModal: false, currentPokemon: null})
@@ -63,12 +58,6 @@ class Pokedex extends Component {
                 <LoadingSpinner />
             )
         }
-        let header = null;
-        if(!this.state.loading) {
-            header = (
-                <Header typingChange={this.searchFieldChangeHandler} searched={this.state.search}/>
-            )
-        }
         let pokeviewer = null
         if(this.state.currentPokemon !== null) {
             pokeviewer = (
@@ -78,26 +67,22 @@ class Pokedex extends Component {
 
         return (
           <React.Fragment>
-            {header}
             <div className={classes.PokedexWrapper}>
               {loading}
               <Modal show={this.state.showPokeModal} closeModal={this.closeModalHandler}>
                 {pokeviewer}
               </Modal>
-              {this.state.pokedex
-                .filter(pokemon =>
-                  pokemon.name
-                    .toLowerCase()
-                    .includes(this.state.search.toLowerCase())
-                )
-                .map((pokemon, index) => (
-                  <PokemonCard
-                    key={pokemon.name}
-                    id={pokemon.game_indices[0].game_index}
-                    pokemon={pokemon}
-                    click={this.pokemonClickHandler}
-                  />
-                ))}
+              <div className={classes.PokemonWrapper}>
+                {this.state.pokedex
+                    .map((pokemon, index) => (
+                    <PokemonCard
+                        key={pokemon.name}
+                        id={pokemon.game_indices[0].game_index}
+                        pokemon={pokemon}
+                        click={this.pokemonClickHandler}
+                    />
+                    ))}
+                </div>
             </div>
           </React.Fragment>
         );

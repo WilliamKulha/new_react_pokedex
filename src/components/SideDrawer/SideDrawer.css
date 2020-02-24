@@ -1,0 +1,60 @@
+.SideDrawer {
+    display: none;
+    height: 100%;
+    background: #fff;
+    box-shadow: 2px 0 5px rgba(0,0,0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    z-index: 101;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out
+}
+
+.SideDrawer.Open {
+    display: block;
+    transform: translateX(0);
+}
+
+.SideDrawer ul {
+    height: 100%;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.SideDrawer li {
+    margin: 0.75rem 0;
+}
+.SideDrawer a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.25rem;
+}
+
+.SideDrawer a:hover,
+.SideDrawer a:active {
+    background-color: #ccc;
+    color:rgb(31, 91, 128);
+}
+
+.SideDrawerNavTop {
+    box-sizing: border-box;
+    font-size: 1.5rem;
+    display: flex;
+    flex-flow: row;
+    height: 70px;
+    align-items: center;
+    padding-left: .5em;
+    background-color: #eee;
+    box-shadow: 1px 2px 1px -1px #ccc;
+}
+
+.SideDrawerNavTop p {
+    margin-left: 1em;
+}
+

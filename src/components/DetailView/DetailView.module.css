@@ -1,0 +1,58 @@
+.DetailWrapper {
+    margin: 100px 1em;
+    display: grid;
+}
+
+
+.SectionHeader {
+    display: flex;
+    padding: 1em;
+    background-color: #eee;
+}
+.PokeName {
+   
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    
+    /* box-shadow: 1px 2px 1px  #ccc; */
+
+}
+
+.PokeName h1 {
+    text-transform: capitalize;
+}
+
+.PokeImage {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.PokeImage img {
+    height: 240px;
+    width: 240px;
+}
+
+.Stats {
+margin: 0;
+display: flex;
+flex-flow: column;
+}
+
+.StatsHeader {
+    display: flex;
+    background-color: #eee;
+    color: black;
+    text-align: left;
+    padding: 1em;
+}
+
+.BaseStats {
+    padding: .25em;
+    background-color: #fff;
+}
+
+
+.TypesArea p {
+    text-transform: capitalize;
+}

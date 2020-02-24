@@ -1,12 +1,13 @@
 import React from 'react'
 import classes from './PokeView.module.css'
+import { Link } from 'react-router-dom'
 
 const PokeView = ({ pokemon }) => (
   <div className={classes.PokeViewContainer}>
-    <div className={classes.PokeName}>
+    <Link to={"detail-view/" + pokemon.id}><div className={classes.PokeName}>
       <h1 className={classes.Title}>{pokemon.name}</h1>
       <h2>#{pokemon.id}</h2>
-    </div>
+    </div> </Link>
     <div className={classes.PokeImage}>
       <img src={pokemon.sprites.front_default} alt={pokemon.name} />
     </div>
