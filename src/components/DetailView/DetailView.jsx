@@ -4,6 +4,26 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import DetailViewNavButton from './DetailViewNavButton/DetailViewNavButton'
 import axios from '../../axios'
 
+const stylesForProperty = {
+  'normal': classes['Normal'],
+  'grass': classes['Grass'],
+  'poison': classes['Poison'],
+  'fire': classes['Fire'],
+  'water': classes['Water'],
+  'electric': classes['Electric'],
+  'ice': classes['Ice'],
+  'fighting': classes['Fighting'],
+  'ground': classes['Ground'],
+  'flying': classes['Flying'],
+  'psychic': classes['Psychic'],
+  'bug': classes['Bug'],
+  'rock': classes['Rock'],
+  'ghost': classes['Ghost'],
+  'dragon': classes["Dragon"],
+  'dark': classes["Dark"],
+  'steel': classes['Steel'],
+  'fairy': classes['Fairy']
+}
 
 class DetailView extends Component {
     state = {
@@ -15,6 +35,8 @@ class DetailView extends Component {
         isFirst: null,
         isLast: null
     }
+
+
 
     componentDidMount(){
         axios
@@ -139,8 +161,9 @@ class DetailView extends Component {
                     </div>
                     <div className={classes.TypesArea}>
                       {this.getTypes().map(type => {
+                        const style = stylesForProperty[type]
                         return (
-                          <p className={classes.type} key={type}>
+                          <p className={style} key={type}>
                             {type}
                           </p>
                         );

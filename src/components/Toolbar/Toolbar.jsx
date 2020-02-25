@@ -24,7 +24,7 @@ const toolbar = props => (
           </li>
           <li>
             <NavLink to="/detail-view/1" activeClassName={classes.active}>
-              Detailed View
+              Detail View
             </NavLink>
           </li>
         </ul>
