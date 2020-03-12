@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import * as myTeamActions from '../../store/actions/myTeamActions'
 import classes from './DetailView.module.css'
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 import DetailViewNavButton from './DetailViewNavButton/DetailViewNavButton'
+import TeamToggle from '../teamToggle/teamToggle'
 import axios from '../../axios'
 
 const stylesForProperty = {
@@ -119,10 +122,20 @@ class DetailView extends Component {
                   >
                     <h1 className={classes.Title}>{this.state.pokemon.name}</h1>
                     <DetailViewNavButton clicked={this.goLeft}>
-                      <span role="img" aria-label="Go left button">⬅️</span>
+                      <span role="img" aria-label="Go left button">
+                        ⬅️
+                      </span>
                     </DetailViewNavButton>
+                    <TeamToggle
+                      displayStyle="add"
+                      onClick={() => this.props.onAddPokemonHandler(this.state.pokemon)}
+                    >
+                      Add to my team
+                    </TeamToggle>
                     <DetailViewNavButton clicked={this.goRight}>
-                      <span role="img" aria-label="Go right button">➡️</span>
+                      <span role="img" aria-label="Go right button">
+                        ➡️
+                      </span>
                     </DetailViewNavButton>
                     <h2>#{this.state.pokemon.id}</h2>
                   </div>
@@ -161,7 +174,7 @@ class DetailView extends Component {
                     </div>
                     <div className={classes.TypesArea}>
                       {this.getTypes().map(type => {
-                        const style = stylesForProperty[type]
+                        const style = stylesForProperty[type];
                         return (
                           <p className={style} key={type}>
                             {type}
@@ -183,4 +196,11 @@ class DetailView extends Component {
     }
 }
 
-export default DetailView
+const mapDispatchToProps = dispatch => {
+  return {
+    onAddPokemonHandler: pokemon => 
+      dispatch(myTeamActions.addPokemonToTeam(pokemon))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(DetailView)

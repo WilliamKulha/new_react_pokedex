@@ -1,0 +1,30 @@
+.Add {
+    background-color: #5cb85c;
+    border: none;
+    color: white;
+    font-size: .5em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.Remove {
+    background-color: #d9534f;
+    border: none;
+    color: white;
+    font-size: .5em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.Disabled {
+    background-color: #292b2c;
+    color: white;
+    border: none;
+    cursor: disabled;
+    padding: 15px;
+    box-sizing: border-box;
+}
