@@ -8,6 +8,7 @@ import ToolBar from './components/Toolbar/Toolbar'
 import DetailView from './components/DetailView/DetailView'
 import ScrollToTop from './hoc/ScrollToTop/ScrollToTop'
 import MyTeam from './components/myTeam/myTeam'
+import Settings from './components/Settings/Settings'
 import {BrowserRouter, Route} from 'react-router-dom'
 import * as pokedexActions from './store/actions/pokedexActions'
 import './App.scss';
@@ -17,8 +18,18 @@ class App extends Component{
       sideDrawerOpen: false
     }
 
-    componentWillMount() {
-      this.props.onFetchPokedex()
+    componentDidMount() {
+      this.props.onFetchPokedex(this.props.pokeNum)
+    }
+
+    componentDidUpdate(prevProps){
+        if (this.props.pokeNum === prevProps.pokeNum){
+          return false
+        } else {
+          console.log('[app.js] ShouldComponentUpdate returns true')
+          this.props.onFetchPokedex(this.props.pokeNum);
+          return true
+        }
     }
 
 
@@ -44,6 +55,7 @@ class App extends Component{
               <Route path="/detail-view/:id" render={(props) => <DetailView {...props}/>} />
               <Route exact path="/" component={Pokedex} />
               <Route exact path="/my-team" component={MyTeam} />
+              <Route exact path="/settings" component={Settings} />
             </Layout>
           </ScrollToTop>
         </BrowserRouter>   
@@ -55,14 +67,15 @@ const mapStateToProps = state => {
   return {
     pokedex: state.pokedex,
     error: state.error,
-    errorType: state.errorType
+    errorType: state.errorType,
+    pokeNum: state.numOfPokemon
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    onFetchPokedex : () => 
-      dispatch(pokedexActions.pokedexTryFetch())
+    onFetchPokedex : (number) => 
+      dispatch(pokedexActions.pokedexTryFetch(number))
   }
 }
 

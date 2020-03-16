@@ -1,9 +1,11 @@
 import * as actionTypes from './actionTypes'
 
-export const addPokemonToTeam = pokemon => {
+export const addPokemon = pokemon => {
+    console.log('[addPokemonToTeam] is being dispatched')
     return {
         type: actionTypes.ADD_POKEMON_TO_TEAM,
-        pokemon: pokemon
+        pokemon: pokemon,
+        message: 'got here'
     }
 }
 
@@ -13,3 +15,4 @@ export const removePokemonFromTeam = id => {
         id: id
     }
 }
+

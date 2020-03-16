@@ -50,7 +50,7 @@ class DetailView extends Component {
                 if(res.data.id != 1) {
                   leftNumber = +res.data.id - 1
                 }
-                if(res.data.id != 250) {
+                if(res.data.id != this.props.pokeNum) {
                   rightNumber = +res.data.id + 1
                 }
                 this.setState({
@@ -128,7 +128,7 @@ class DetailView extends Component {
                     </DetailViewNavButton>
                     <TeamToggle
                       displayStyle="add"
-                      onClick={() => this.props.onAddPokemonHandler(this.state.pokemon)}
+                      clicked={ () => this.props.onAddPokemonHandler(this.state.pokemon)}
                     >
                       Add to my team
                     </TeamToggle>
@@ -195,12 +195,16 @@ class DetailView extends Component {
         )
     }
 }
-
+const mapStateToProps = state => {
+  return {
+    pokeNum: state.numOfPokemon
+  }
+}
 const mapDispatchToProps = dispatch => {
   return {
-    onAddPokemonHandler: pokemon => 
-      dispatch(myTeamActions.addPokemonToTeam(pokemon))
+    onAddPokemonHandler: pokemon =>
+      dispatch(myTeamActions.addPokemon(pokemon))
   }
 }
 
-export default connect(null, mapDispatchToProps)(DetailView)
+export default connect(mapStateToProps, mapDispatchToProps)(DetailView)

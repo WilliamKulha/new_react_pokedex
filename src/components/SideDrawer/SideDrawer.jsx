@@ -33,6 +33,11 @@ const sideDrawer = props => {
               Detail View
             </NavLink>
           </li>
+          <li>
+            <NavLink to="/settings" onClick={props.backClicked}>
+              Settings
+            </NavLink>
+          </li>
         </ul>
       </nav>
     );

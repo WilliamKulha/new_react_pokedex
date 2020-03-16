@@ -1,7 +1,7 @@
 import * as actionTypes from './actionTypes'
 
-const getList = async () => {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/?limit=250`).then(resp =>
+const getList = async (numToGet) => {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/?limit=` + numToGet).then(resp =>
     resp.json()
   );
 };
@@ -28,9 +28,9 @@ export const pokedexFetchError = error => {
     }
 }
 
-export const pokedexTryFetch = () => {
+export const pokedexTryFetch = (numToGet) => {
     return dispatch => {
-        getList().then(bigList => {
+        getList(numToGet).then(bigList => {
           return getPokemon(bigList).then(results => {
             console.log(results)
             dispatch(pokedexFetchSuccess(results))

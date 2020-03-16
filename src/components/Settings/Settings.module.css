@@ -1,0 +1,21 @@
+.SettingsWrapper {
+    box-sizing: border-box;
+    padding-top: 75px;
+}
+
+.SettingsControl {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #eee;
+}
+
+.SettingsControl p {
+    text-align: center;
+    background-color: #ccc;
+    width: 100%;
+    padding: 0;
+}

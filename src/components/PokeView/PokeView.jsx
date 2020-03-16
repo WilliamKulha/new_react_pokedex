@@ -26,7 +26,7 @@ const PokeView = (props) => (
       </div>
       <TeamToggle 
         displayStyle="add"
-        onClick={() =>props.onAddPokemonHandler(props.pokemon)}>
+        clicked={() => props.onAddPokemonHandler(props.pokemon)}>
           Add to my team 
       </TeamToggle>
     </div>
@@ -37,7 +37,7 @@ const PokeView = (props) => (
 const mapDispatchToProps = dispatch => {
   return {
     onAddPokemonHandler: pokemon =>
-      dispatch(myTeamActions.addPokemonToTeam(pokemon))
+      dispatch(myTeamActions.addPokemon(pokemon))
   };
 };
 

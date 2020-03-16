@@ -10,7 +10,7 @@ const teamToggle = props => {
 
   const style = stylesForProp[props.displayStyle];
   return (
-    <button className={style} disabled={props.disabled}>
+    <button className={style} disabled={props.disabled} onClick={props.clicked}>
       {props.children}
     </button>
   );

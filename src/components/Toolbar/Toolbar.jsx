@@ -7,7 +7,7 @@ const toolbar = props => (
   <header className={classes.Toolbar}>
     <nav className={classes.ToolbarNav}>
       <div>
-        <DrawerToggleButton clicked={props.drawerClickHandler}/>
+        <DrawerToggleButton clicked={props.drawerClickHandler} />
       </div>
       <div className={classes.ToolbarLogo}>
         <NavLink to="/" exact activeClassName={classes.active}>
@@ -25,6 +25,11 @@ const toolbar = props => (
           <li>
             <NavLink to="/detail-view/1" activeClassName={classes.active}>
               Detail View
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/settings" activeClassName={classes.active}>
+              Settings
             </NavLink>
           </li>
         </ul>
